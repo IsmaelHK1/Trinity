@@ -12,20 +12,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Projet Trinity',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          title: const Center(child: Text("Trinity")),
+          backgroundColor: Colors.blue[900],
+          title: const Center(
+            child: Text(
+              "Trinity",
+              style: TextStyle(
+                color: Color.fromARGB(255, 119, 208, 240),
+              ),
+            ),
+          ),
         ),
-        body: Image.asset(
-          'images/logo_trinity.png',
-          width: 200,
-          height: 200,
-          fit: BoxFit.contain,
-          alignment: ,
+        body: Container(
+          child: Center(
+            child: Image.asset(
+              'images/logo_trinity.png',
+              width: 200,
+              height: 200,
+              fit: BoxFit.contain,
+            ),
+          ),
         ),
       ),
     );
