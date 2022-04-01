@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trinity/second.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
 
         textTheme: const TextTheme(
             headline6: TextStyle(fontSize: 30.0 , fontWeight: FontWeight.bold) ),
-        
+
       ),
 
       home: const MyHomePage(
@@ -56,6 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Material(
               color : const Color(0x00ffffff),
               child: InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
                 child: Container(
                   width: 80.0,
                   height: 80,
