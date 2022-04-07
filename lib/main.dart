@@ -1,6 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:trinity/screens/LogoPage/LogoPage.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  // Crashlytics config
+  if (!kIsWeb) {
+    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  }
+
   runApp(const MyApp());
 }
 
@@ -10,32 +23,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Projet Trinity',
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: AppBar(
-          backgroundColor: Colors.blue[900],
-          title: const Center(
-            child: Text(
-              "Trinity",
-              style: TextStyle(
-                color: Color.fromARGB(255, 119, 208, 240),
-              ),
-            ),
-          ),
-        ),
-        body: Container(
-          child: Center(
-            child: Image.asset(
-              'images/logo_trinity.png',
-              width: 200,
-              height: 200,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ),
-      ),
-    );
+    return const MaterialApp(title: 'Projet Trinity', home: LogoPage());
   }
 }
