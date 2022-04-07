@@ -7,11 +7,11 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-      ),
-      body: const Center(
-        child: Text('HELLO WORLD'),
+        backgroundColor: const Color.fromRGBO(24,24,25,1.0),
+      body: Stack(
+        children : <Widget> [
+
+        ]
       )
     );
   }
