@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -50,34 +51,126 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        children: List.generate(100, (index) {
-          return Center(
-            child: Material(
-              color : const Color(0x00ffffff),
+      body: Stack(
+        children: <Widget> [
+
+          /* BUTTON ACCOUNT */
+          Positioned(
+            top : 140,
+            left: 60,
+            child : Container(
+            alignment: Alignment.center,
+            width: 80.0,
+            height: 80,
+            //margin: const EdgeInsets.all(80),
+            //padding: const EdgeInsets.only(top: 29),
+            decoration: const BoxDecoration(
+              color: Colors.blueAccent,
+              shape: BoxShape.circle,
+            ),
+            child: InkWell(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
+              child: const Icon(
+                Icons.account_circle,
+                size: 50.0,
+              ),
+            ),
+          ),
+          ),
+
+        /* Button play */
+          Positioned(
+            top: 140,
+            right: 60,
+            child: Container(
+            alignment: Alignment.center,
+            width: 80.0,
+            height: 80,
+            //margin: const EdgeInsets.all(140),
+            //padding: const EdgeInsets.only(top: 29),
+            decoration: const BoxDecoration(
+              color: Colors.blueAccent,
+              shape: BoxShape.circle,
+            ),
               child: InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
-                child: Container(
-                  width: 80.0,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: Colors.blueAccent,
-                    borderRadius: BorderRadius.circular(150.0),
-                  ),
-                )
+                child: const Icon(
+                  Icons.play_circle_fill,
+                  size: 50.0,
+                ),
               ),
-            ),
-          );
-        }),
-      )
+          ),),
+
+          /* Button Add User */
+          Positioned(
+            bottom : 140,
+            right: 60,
+            child: Container(
+              alignment: Alignment.center,
+              width: 80.0,
+              height: 80,
+              //margin: const EdgeInsets.all(140),
+              //padding: const EdgeInsets.only(top: 29),
+              decoration: const BoxDecoration(
+                color: Colors.blueAccent,
+                shape: BoxShape.circle,
+              ),
+              child: InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
+                child: const Icon(
+                  Icons.person_add_alt_1_sharp,
+                  size: 50.0,
+                ),
+              ),
+            ),),
+
+          /* Button notification */
+          Positioned(
+            bottom : 140,
+            left: 60,
+            child: Container(
+              alignment: Alignment.center,
+              width: 80.0,
+              height: 80,
+              //margin: const EdgeInsets.all(140),
+              //padding: const EdgeInsets.only(top: 29),
+              decoration: const BoxDecoration(
+                color: Colors.blueAccent,
+                shape: BoxShape.circle,
+              ),
+              child: InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
+                child: const Icon(
+                  Icons.notifications,
+                  size: 50.0,
+                ),
+              ),
+            ),),
+
+          /* logo trinity */
+          Center(
+              child: Container(
+                alignment: Alignment.center,
+                width: 100.0,
+                height: 100,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/images/logo_trinity.png"),
+                    )
+                ),
+                child: InkWell(
+                 onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
+                ),
+
+              ) )
+        ],
+    )
     );
   }
 }
-
-//class RaisedButton extends StatefulWidget(
-//onPressed: null,
-//shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-//)
 
