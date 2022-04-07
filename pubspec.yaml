@@ -51,6 +51,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+
+  assets:
+    - assets/images/logo_trinity.png
+
   fonts:
     - family: Lemon tea
       fonts:
