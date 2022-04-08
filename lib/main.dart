@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:trinity/Screens/Authentification/AuthentificationScreen.dart';
 import 'package:trinity/screens/LogoPage/LogoPage.dart';
 
 void main() async {
@@ -23,6 +24,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Projet Trinity', home: LogoPage());
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Projet Trinity',
+        home: AuthentificationScreen());
   }
 }
