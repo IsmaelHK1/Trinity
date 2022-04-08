@@ -70,8 +70,8 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
                 )
               ],
             ),
-            body: SingleChildScrollView(
-              child: Container(
+            body: Center(
+              child: SingleChildScrollView(
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -107,6 +107,9 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
                           return null;
                         },
                       ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
                       TextFormField(
                         obscureText: true,
                         controller: passwordController,
@@ -141,8 +144,8 @@ class _AuthentificationScreenState extends State<AuthentificationScreen> {
                         decoration: TextInputDecoration.copyWith(
                           hintText: 'Enter a short description of yourself',
                         ),
-                        // maxLines: 3,
-                        // minLines: 3,
+                        maxLines: 6,
+                        minLines: 3,
                       ),
                     ],
                   ),
