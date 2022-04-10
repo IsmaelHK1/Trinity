@@ -1,6 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trinity/Services/CurrentUser.dart';
+import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Screens/LogInPage/LogInScreen.dart';
 import 'package:trinity/Screens/MenuPage/Home_Page.dart';
 

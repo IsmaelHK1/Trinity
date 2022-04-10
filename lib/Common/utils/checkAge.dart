@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:intl/intl.dart';
 
 bool isAdult(String birthDateString) {
@@ -23,5 +25,4 @@ bool isAdult(String birthDateString) {
     return isMajor = false;
   }
   return isMajor;
-  ;
 }

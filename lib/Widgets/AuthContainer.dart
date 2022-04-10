@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class AuthContainer extends StatelessWidget {
@@ -7,7 +9,7 @@ class AuthContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // DesignduContainer pour la partie Auth et Regis
+    // Design du Container pour la partie Auth et Regis
     return Container(
       padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(

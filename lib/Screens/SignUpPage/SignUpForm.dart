@@ -1,7 +1,8 @@
+// ignore_for_file: file_names
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trinity/Services/CurrentUser.dart';
+import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/checkAge.dart';
 import 'package:trinity/common/utils/BordersDesign.dart';
 import 'package:trinity/widgets/AuthContainer.dart';
@@ -20,11 +21,19 @@ class SignUpFormState extends State<SignUpForm> {
   TextEditingController ageController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
 
-  void _signUpUser(String email, String password, BuildContext context) async {
+  void _signUpUser(
+    String email,
+    String password,
+    String pseudo,
+    String about,
+    String birthdate,
+    BuildContext context,
+  ) async {
     CurrentUser _currentUser = Provider.of<CurrentUser>(context, listen: false);
 
     try {
-      if (await _currentUser.signUpUser(email, password)) {
+      if (await _currentUser.signUpUser(
+          email, password, pseudo, about, birthdate)) {
         Navigator.pop(context);
       }
     } catch (e) {
@@ -121,7 +130,12 @@ class SignUpFormState extends State<SignUpForm> {
             onPressed: () {
               if (isAdult(ageController.text) == true) {
                 _signUpUser(
-                    emailController.text, passwordController.text, context);
+                    emailController.text,
+                    passwordController.text,
+                    pseudoController.text,
+                    ageController.text,
+                    aboutController.text,
+                    context);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(

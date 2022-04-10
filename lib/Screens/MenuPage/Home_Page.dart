@@ -1,7 +1,9 @@
 // ignore: file_names
+// ignore_for_file: file_names, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trinity/Services/CurrentUser.dart';
+import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
 import 'package:trinity/Screens/MenuPage/second.dart';
 
