@@ -62,6 +62,8 @@ flutter:
     - family: Louis george café
       fonts:
         - asset : assets/fonts/Louis George Cafe.ttf
+        - asset: assets/fonts/Louis George Cafe Italic.ttf
+        - asset: assets/fonts/Louis George Cafe Bold.ttf
 
   uses-material-design: true
 

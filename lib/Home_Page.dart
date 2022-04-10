@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trinity/second.dart';
+import 'package:trinity/postgame_Page.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({Key? key}) : super(key: key);
@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 child: InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const PostGame_page()),);}, //Change de page
                   child: const Icon(
                     Icons.account_circle,
                     size: 50.0,
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 child: InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const PostGame_page()),);}, //Change de page
                   child: const Icon(
                     Icons.play_circle_fill,
                     size: 50.0,
@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 child: InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const PostGame_page()),);}, //Change de page
                   child: const Icon(
                     Icons.person_add_alt_1_sharp,
                     size: 50.0,
@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 child: InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const PostGame_page()),);}, //Change de page
                   child: const Icon(
                     Icons.notifications,
                     size: 50.0,
@@ -149,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   child: InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()),);}, //Change de page
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const PostGame_page()),);}, //Change de page
                   ),
                 ) )
           ],
