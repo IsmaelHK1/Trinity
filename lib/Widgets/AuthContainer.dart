@@ -7,12 +7,13 @@ class AuthContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // DesignduContainer pour la partie Auth et Regis
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15.0),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(color: Colors.white38),
         ],
       ),

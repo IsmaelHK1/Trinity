@@ -3,9 +3,8 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trinity/Common/models/CurrentUser.dart';
-import 'package:trinity/Screens/LoginPage/loginScreen.dart';
-import 'package:trinity/screens/LogoPage/LogoPage.dart';
+import 'package:trinity/Services/CurrentUser.dart';
+import 'package:trinity/Common/utils/IsLogged.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,12 +25,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // Permet d'écouter un changement
     return ChangeNotifierProvider(
       create: (context) => CurrentUser(),
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Projet Trinity',
-        home: LogInScreen(),
+        home: IsLogged(),
       ),
     );
   }

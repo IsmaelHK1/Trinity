@@ -1,8 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:trinity/Common/models/CurrentUser.dart';
+import 'package:trinity/Services/CurrentUser.dart';
 import 'package:trinity/Common/utils/checkAge.dart';
 import 'package:trinity/common/utils/BordersDesign.dart';
 import 'package:trinity/widgets/AuthContainer.dart';

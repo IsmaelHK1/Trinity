@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trinity/Common/models/CurrentUser.dart';
+import 'package:trinity/Services/CurrentUser.dart';
+import 'package:trinity/Common/utils/IsLogged.dart';
 import 'package:trinity/Screens/MenuPage/Home_Page.dart';
 import 'package:trinity/Screens/SignUpPage/SignUpScreen.dart';
 import 'package:trinity/common/utils/BordersDesign.dart';
@@ -17,16 +18,17 @@ class _LoginFormState extends State<LogInForm> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  // ignore: non_constant_identifier_names
   void _LogInUser(String email, String password, BuildContext context) async {
     CurrentUser _currentUser = Provider.of<CurrentUser>(context, listen: false);
 
     try {
       if (await _currentUser.LogInUser(email, password)) {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const MyHomePage(),
-          ),
-        );
+        // pushAndRemoveUntil permet d'éviter d'avoir cette flèche sur l'appbar lors de la connexion en vidant les routes
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const IsLogged()),
+            (route) => false);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:trinity/Screens/SignUpPage/SignUpForm.dart';
-import 'package:trinity/widgets/AuthContainer.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
