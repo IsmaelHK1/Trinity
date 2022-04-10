@@ -1,4 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:trinity/Common/models/CurrentUser.dart';
+import 'package:trinity/Common/utils/checkAge.dart';
 import 'package:trinity/common/utils/BordersDesign.dart';
 import 'package:trinity/widgets/AuthContainer.dart';
 
@@ -10,6 +15,26 @@ class SignUpForm extends StatefulWidget {
 }
 
 class SignUpFormState extends State<SignUpForm> {
+  TextEditingController pseudoController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController aboutController = TextEditingController();
+
+  void _signUpUser(String email, String password, BuildContext context) async {
+    CurrentUser _currentUser = Provider.of<CurrentUser>(context, listen: false);
+
+    try {
+      if (await _currentUser.signUpUser(email, password)) {
+        Navigator.pop(context);
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return AuthContainer(
@@ -26,6 +51,7 @@ class SignUpFormState extends State<SignUpForm> {
             ),
           ),
           TextFormField(
+            controller: pseudoController,
             decoration: textInputDecoration.copyWith(
                 prefixIcon: const Icon(Icons.person), hintText: 'Pseudo'),
           ),
@@ -33,6 +59,7 @@ class SignUpFormState extends State<SignUpForm> {
             height: 10.0,
           ),
           TextFormField(
+            controller: emailController,
             decoration: textInputDecoration.copyWith(
                 prefixIcon: const Icon(Icons.alternate_email),
                 hintText: 'Email'),
@@ -41,6 +68,8 @@ class SignUpFormState extends State<SignUpForm> {
             height: 10.0,
           ),
           TextFormField(
+            controller: passwordController,
+            obscureText: true,
             decoration: textInputDecoration.copyWith(
                 prefixIcon: const Icon(Icons.password), hintText: 'Password'),
           ),
@@ -48,6 +77,8 @@ class SignUpFormState extends State<SignUpForm> {
             height: 10.0,
           ),
           TextFormField(
+            controller: ageController,
+            keyboardType: TextInputType.number,
             decoration: textInputDecoration.copyWith(
                 prefixIcon: const Icon(Icons.edit_calendar),
                 hintText: 'Birthdate'),
@@ -56,6 +87,7 @@ class SignUpFormState extends State<SignUpForm> {
             height: 10.0,
           ),
           TextFormField(
+            controller: aboutController,
             decoration: textInputDecoration.copyWith(
                 prefixIcon: const Icon(Icons.text_fields),
                 hintText: 'Short description...'),
@@ -87,7 +119,22 @@ class SignUpFormState extends State<SignUpForm> {
                 ),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              if (isAdult(ageController.text) == true) {
+                _signUpUser(
+                    emailController.text, passwordController.text, context);
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text(
+                      'You must be at least 18 years old !',
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    duration: Duration(seconds: 3),
+                  ),
+                );
+              }
+            },
           ),
         ],
       ),
