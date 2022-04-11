@@ -6,9 +6,9 @@ import 'package:trinity/Common/models/UserData.dart';
 import 'package:trinity/Services/FirestoreDatabase.dart';
 
 class CurrentUser extends ChangeNotifier {
-  late UserData _currentUser;
+  UserData? _currentUser;
 
-  UserData get getCurrentUser => _currentUser;
+  UserData? get getCurrentUser => _currentUser;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -48,8 +48,8 @@ class CurrentUser extends ChangeNotifier {
     bool returnValue = false;
     try {
       User _firebaseUser = _auth.currentUser!;
-      _currentUser.uid = _firebaseUser.uid;
-      _currentUser.uid = _firebaseUser.email!;
+      _currentUser?.uid = _firebaseUser.uid;
+      _currentUser?.uid = _firebaseUser.email;
       returnValue = true;
     } catch (e) {
       if (kDebugMode) {
@@ -84,8 +84,8 @@ class CurrentUser extends ChangeNotifier {
           email: email, password: password);
 
       if (_authResult.user != null) {
-        _currentUser.uid = _authResult.user!.uid;
-        _currentUser.email = _authResult.user!.email!;
+        _currentUser?.uid = _authResult.user!.uid;
+        _currentUser?.email = _authResult.user!.email!;
         returnValue = true;
       }
     } catch (e) {
