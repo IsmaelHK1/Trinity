@@ -35,6 +35,19 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+void signOut(BuildContext context) async {
+  CurrentUser _currentUser = Provider.of<CurrentUser>(context, listen: false);
+  bool _returnString = await _currentUser.SignOut();
+
+  if (_returnString == true) {
+    // Envoie à la page et supprime toutes clear les anciennes routes
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const IsLogged()),
+        (route) => false);
+  }
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -48,17 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // Log out
             icon: const Icon(Icons.logout),
             onPressed: () async {
-              CurrentUser _currentUser =
-                  Provider.of<CurrentUser>(context, listen: false);
-              bool _returnString = await _currentUser.SignOut();
-
-              if (_returnString == true) {
-                // Envoie à la page et supprime toutes clear les anciennes routes
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => const IsLogged()),
-                    (route) => false);
-              }
+              signOut(context);
             },
           )
         ],
