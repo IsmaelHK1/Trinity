@@ -9,6 +9,7 @@ class UserData {
   String? birthday;
   String? about;
   Timestamp? accountCreated;
+  String? role;
 
   UserData({
     this.uid,
@@ -17,5 +18,6 @@ class UserData {
     this.birthday,
     this.about,
     this.accountCreated,
+    this.role,
   });
 }
