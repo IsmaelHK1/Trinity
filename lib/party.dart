@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 
-// void main() {
-//   runApp(const MyApp());
-// }
+void main() {
+  runApp(const MyApp());
+}
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({Key? key}) : super(key: key);
-//
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.yellow,
-//       ),
-//       home: const MyHomePage(title: 'Soirée'),
-//     );
-//   }
-// }
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.yellow,
+      ),
+      home: const PartyPage(title: 'Soirée'),
+    );
+  }
+}
 
 class PartyPage extends StatefulWidget {
   const PartyPage({Key? key, required this.title}) : super(key: key);
