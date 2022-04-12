@@ -1,14 +1,21 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+// ignore_for_file: file_names
 
-class User {
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-  String? name ;
-  IconData? icon  ;
+class UserData {
+  String? uid;
+  String? pseudo;
+  String? email;
+  String? birthday;
+  String? about;
+  Timestamp? accountCreated;
 
-  User(String name, IconData icon) {
-    this.name = name;
-    this.icon = icon;
-  }
-
+  UserData({
+    this.uid,
+    this.pseudo,
+    this.email,
+    this.birthday,
+    this.about,
+    this.accountCreated,
+  });
 }

@@ -10,10 +10,11 @@ List<User> createGroupTest(){
   User user4 = User("byu", Icons.account_circle_outlined);
   User user5 = User("marchestp", Icons.account_circle_outlined);
   User user6 = User("marchestp x2", Icons.account_circle_outlined);
+  User user7 = User("marchestp x2", Icons.account_circle_outlined);
 
   // on ne peut ajouter que 4 personne sinon gros beug : /
 
-  List<User> group = [user1, user2, user3, user4];
+  List<User> group = [user1, user2, user3, user4, user5, user6, user7];
   return group;
 
 }
