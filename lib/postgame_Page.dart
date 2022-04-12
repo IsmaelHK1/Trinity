@@ -8,6 +8,8 @@ List<User> createGroupTest(){
   User user2 = User("bastien", Icons.account_circle_outlined);
   User user3 = User("robert", Icons.account_circle_outlined);
   User user4 = User("byu", Icons.account_circle_outlined);
+  User user5 = User("marchestp", Icons.account_circle_outlined);
+  User user6 = User("marchestp x2", Icons.account_circle_outlined);
 
   // on ne peut ajouter que 4 personne sinon gros beug : /
 
@@ -29,15 +31,16 @@ class PostGame_page extends StatelessWidget {
       backgroundColor: const Color.fromRGBO(24,24,25,1.0),
 
       body: Center(
-        child : Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+
+        child : ListView(
+          shrinkWrap: true,
           children : <Widget> [
             /*Creer ta team */
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                    margin : EdgeInsets.only(top: 80),
+                    margin : EdgeInsets.only(top: 5),
                     padding : EdgeInsets.only(top : 20, bottom: 20, left: 40, right: 40),
                     child : const Center(
                         child: Text(
@@ -68,7 +71,13 @@ class PostGame_page extends StatelessWidget {
                         color: Colors.cyan,
                         shape: BoxShape.circle
                     ),
-                    child: const InkWell(
+                    child: InkWell(
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) =>_buildPopupDialog(context)
+                        );
+                      },
                       child: Icon(
                         Icons.person_add_alt_1_sharp,
                         size: 70,
@@ -107,7 +116,7 @@ class PostGame_page extends StatelessWidget {
                                 Container(
                                   width: 60.0,
                                   height: 60.0,
-                                  margin : EdgeInsets.only( bottom: 10, left : 10),
+                                  margin : EdgeInsets.only( bottom: 10, left : 17),
                                   decoration: const BoxDecoration(
                                       color: Colors.orange,
                                       shape: BoxShape.circle
@@ -147,14 +156,14 @@ class PostGame_page extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            /**ici **/
             Stack(
               children: <Widget>[
                 Align(
                   alignment: Alignment.bottomRight,
                   child : Container(
                     alignment: Alignment.center,
-                    margin : EdgeInsets.only(bottom: 40, top : 20),
+                    margin : EdgeInsets.only(bottom: 0, top : 20),
                     width: 280,
                     height: 60,
                     child: Text(
@@ -199,3 +208,36 @@ class PostGame_page extends StatelessWidget {
     );
   }
 }
+
+
+Widget _buildPopupDialog(BuildContext context) {
+  return AlertDialog(
+    title: const Text('Cherche un utilisteur'),
+    content: new Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+      Container(
+        width: double.infinity,
+        height: 40,
+        color: Colors.white,
+          child: Center(
+            child: TextField(
+            decoration: InputDecoration(
+            hintText: 'Search',
+            prefixIcon: Icon(Icons.search),),
+            )
+          )
+      )
+      ],),
+    actions: <Widget>[
+       TextButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        child: const Text('Close', style: TextStyle(color: Colors.blue),),
+      ),
+    ],
+  );
+}
+
