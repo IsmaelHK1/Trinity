@@ -46,6 +46,8 @@ android {
         applicationId "trinityynov.com.trinity"
         minSdkVersion 19
         targetSdkVersion 32
+        // gestion affichage tel
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -64,5 +66,7 @@ flutter {
 }
 
 dependencies {
+    // gestion affichage tel
+    implementation 'com.android.support:multidex:1.0.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
