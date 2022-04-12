@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "207236664152",
+    "project_id": "trinity-5ef2c",
+    "storage_bucket": "trinity-5ef2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207236664152:android:f59e99accd15df8164732d",
+        "android_client_info": {
+          "package_name": "trinityynov.com.trinity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207236664152-p0onng7bhtcbv0aa06l7tlel5vrn15se.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVMm9zOWbxr_xko81RPON5fCT8URxIgFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207236664152-p0onng7bhtcbv0aa06l7tlel5vrn15se.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
