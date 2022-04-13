@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:trinity/Class/user.dart';
 
 // utiliser pour creer des utilisateur fake
-List<User> createGroupTest(){
-  User user1 = User("bob" ,  Icons.account_circle);
-  User user2 = User("bastien", Icons.account_circle_outlined);
-  User user3 = User("robert", Icons.account_circle_outlined);
-  User user4 = User("byu", Icons.account_circle_outlined);
-  User user5 = User("marchestp", Icons.account_circle_outlined);
-  User user6 = User("marchestp x2", Icons.account_circle_outlined);
-  User user7 = User("marchestp x2", Icons.account_circle_outlined);
+//List<UserData> createGroupTest(){
+  //UserData user1 = UserData("opozi",'Isma','isma@123.com','271201','Developper');
+  //UserData user2 = UserData("bastien", Icons.account_circle_outlined);
+  //UserData user3 = UserData("robert", Icons.account_circle_outlined);
+  //UserData user4 = UserData("byu", Icons.account_circle_outlined);
+  //UserData user5 = UserData("marchestp", Icons.account_circle_outlined);
+  //UserData user6 = UserData("marchestp x2", Icons.account_circle_outlined);
+  //UserData user7 = UserData("marchestp x2", Icons.account_circle_outlined);
 
   // on ne peut ajouter que 4 personne sinon gros beug : /
 
-  List<User> group = [user1, user2, user3, user4, user5, user6, user7];
-  return group;
+ // List<UserData> group = [user1];
+  //return group;
 
-}
+//}
 
 class PostGame_page extends StatelessWidget {
 
@@ -26,7 +26,7 @@ class PostGame_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final group = createGroupTest();
+  //  final group = createGroupTest();
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(24,24,25,1.0),
@@ -107,7 +107,7 @@ class PostGame_page extends StatelessWidget {
 
                     child : ListView.separated(
                       shrinkWrap: true,
-                      itemCount: group.length,
+                      itemCount: 1,
                       itemBuilder: (BuildContext context, int index){
                         return Container(
                             child : Row(
@@ -123,7 +123,7 @@ class PostGame_page extends StatelessWidget {
                                       shape: BoxShape.circle
                                   ),
                                   child: Icon(
-                                    group[index].icon,
+                                    Icons.account_balance,
                                     size : 50,
 
                                   ),
@@ -135,7 +135,7 @@ class PostGame_page extends StatelessWidget {
                                   width: 280.0,
                                   height: 40.0,
                                   child : Text(
-                                    '${group[index].name} à rejoint votre salon',
+                                    'ismael a rejoint votre salon',
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontFamily: 'Louis George Cafe.ttf',
