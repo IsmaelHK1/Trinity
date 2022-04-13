@@ -3,6 +3,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trinity/Screens/classChoiceScreen.dart/classChoiceScreen.dart';
 import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
 import 'package:trinity/Screens/SignUpPage/SignUpScreen.dart';
@@ -117,7 +118,7 @@ class _LoginFormState extends State<LogInForm> {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const SignUpScreen(),
+                  builder: (context) => const ClassChoiceScreen(),
                 ),
               );
             },
