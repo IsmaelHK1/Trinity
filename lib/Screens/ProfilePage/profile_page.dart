@@ -25,7 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
         physics: BouncingScrollPhysics(),
         children: [
           ProfileWidget(
-            imagePath: user.imagePath,
+            imagePath: user.imagepath!,
             onClicked: () async {
               Navigator.push(
                 context,
@@ -51,12 +51,12 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget buildName(UserData user) => Column(
         children: [
           Text(
-            user.pseudo,
+            user.pseudo!,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
           ),
           const SizedBox(height: 4),
           Text(
-            user.email,
+            user.email!,
             style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold),
           )
         ],
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             const SizedBox(height: 16),
             Text(
-              user.about,
+              user.about!,
               style: TextStyle(
                   fontSize: 16, height: 1.4, fontWeight: FontWeight.bold),
             ),

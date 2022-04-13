@@ -26,33 +26,33 @@ class _EditProfilePageState extends State<EditProfilePage> {
           padding: const EdgeInsets.symmetric(horizontal: 32),
           physics: const BouncingScrollPhysics(),
           children: [
-            /*ProfileWidget(
-              imagePath: user.imagePath,
+            ProfileWidget(
+              imagePath: user.imagepath!,
               isEdit: true,
               onClicked: () async {},
-            ),*/
+            ),
             const SizedBox(height: 24),
             TextFieldWidget(
               label: 'Full Name',
-              text: user.pseudo,
+              text: user.pseudo!,
               onChanged: (pseudo) {},
             ),
             const SizedBox(height: 24),
             TextFieldWidget(
               label: 'Age',
-              text: user.birthday,
+              text: user.birthday!,
               onChanged: (birthday) {},
             ),
             const SizedBox(height: 24),
             TextFieldWidget(
               label: 'Email',
-              text: user.email,
+              text: user.email!,
               onChanged: (email) {},
             ),
             const SizedBox(height: 24),
             TextFieldWidget(
               label: 'About',
-              text: user.about,
+              text: user.about!,
               maxLines: 5,
               onChanged: (about) {},
             ),

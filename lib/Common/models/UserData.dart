@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserData {
   String? uid;
+  String? imagepath;
   String? pseudo;
   String? email;
   String? birthday;
@@ -12,6 +13,7 @@ class UserData {
 
   UserData({
     this.uid,
+    this.imagepath,
     this.pseudo,
     this.email,
     this.birthday,
