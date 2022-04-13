@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trinity/Screens/ProfilePage/profile_page.dart';
 import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
 import 'package:trinity/Screens/MenuPage/second.dart';
@@ -81,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SecondPage()),
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
                   );
                 }, //Change de page
                 child: const Icon(
