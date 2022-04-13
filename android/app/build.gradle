@@ -48,7 +48,7 @@ android {
         applicationId "trinityynov.com.trinity"
         minSdkVersion 19
         targetSdkVersion 32
-        multiDexEnabled true
+//        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -69,6 +69,6 @@ flutter {
 dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.3.0')
     implementation 'com.google.firebase:firebase-firestore'
-    implementation 'com.android.support:multidex:1.0.3'
+//    implementation 'com.android.support:multidex:1.0.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
