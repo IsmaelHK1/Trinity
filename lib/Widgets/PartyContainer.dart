@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:trinity/Common/models/UserData.dart';
+import 'package:trinity/Services/Party.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyPage());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyPage extends StatelessWidget {
+  const MyPage({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -15,13 +18,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
-      home: const PartyPage(title: 'Soirée'),
+      home: const PartyPage(),
     );
   }
 }
 
 class PartyPage extends StatefulWidget {
-  const PartyPage({Key? key, required this.title}) : super(key: key);
+  const PartyPage({Key? key}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -31,8 +34,6 @@ class PartyPage extends StatefulWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
-
-  final String title;
 
   @override
   State<PartyPage> createState() => _PartyPageState();
@@ -71,11 +72,14 @@ class _PartyPageState extends State<PartyPage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
+    return /*StreamProvider<UserData>.value(
+        initialData: UserData(),
+        value: PartyService(UserData().uid).user,
+        child:*/ Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text("Soirée"),
       ),
       body: Center(
         child: Column(
@@ -134,6 +138,7 @@ class _PartyPageState extends State<PartyPage> {
           ],
         ),
       ),
+      // ),
     );
   }
 }

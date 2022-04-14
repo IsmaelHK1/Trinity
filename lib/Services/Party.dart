@@ -9,14 +9,25 @@ class PartyService {
 
   PartyService(this.uid);
 
-  final CollectionReference consumptionCollection =
-      FirebaseFirestore.instance.collection("consumption");
+  final CollectionReference userCollection =
+  FirebaseFirestore.instance.collection('user');
 
-  Future<void> addConsumption(int soft, int medium, int hard) async {
-    return await consumptionCollection.doc(uid).set({
-      'soft' : soft,
-      'medium' : medium,
-      'hard' : hard,
-    });
+  // Future<void> addConsumption(int soft, int medium, int hard) async {
+  //   return await consumptionCollection.doc(uid).set({
+  //     'soft' : soft,
+  //     'medium' : medium,
+  //     'hard' : hard,
+  //   });
+  // }
+  UserData _userFromSnapshot(DocumentSnapshot snapshot) {
+    return UserData(
+      uid: uid,
+      pseudo: snapshot.get('pseudo'),
+    );
   }
+
+  Stream<UserData> get user {
+    return userCollection.doc(uid).snapshots().map(_userFromSnapshot);
+  }
+
 }
