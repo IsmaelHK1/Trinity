@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trinity/Common/models/UserData.dart';
@@ -68,76 +70,76 @@ class _PartyPageState extends State<PartyPage> {
 
   @override
   Widget build(BuildContext context) {
-
+    var user = Provider.of<UserData>(context);
 
     return StreamProvider<UserData>.value(
         initialData: UserData(),
         value: PartyService(UserData().uid).user,
         child: Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text("Soirée"),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            // Text(
-            //
-            //   style: TextStyle(fontSize: 28),
-            // ),
-            const UserPseudo(),
-            const Text(
-              'Tank',
-              style: TextStyle(fontSize: 21),
-            ),
-            SizedBox(
-              width: 300,
-              height: 20,
-              child: Stack(
-                children: [
-                  SizedBox.expand(
-                    child: LinearProgressIndicator(
-                      value: _percentLifePoint,
-                      backgroundColor: Colors.cyan[100],
-                      valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      _lifePoint.toString() + "PV",
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          appBar: AppBar(
+            // Here we take the value from the MyHomePage object that was created by
+            // the App.build method, and use it to set our appbar title.
+            title: Text("Soirée"),
+          ),
+          body: Center(
+            child: Column(
               children: [
-                TextButton(
-                  onPressed: () => _addConsumption(5),
-                  child: const Text('Soft'),
+                Text(
+                  user.pseudo.toString(),
+                  style: TextStyle(fontSize: 28),
                 ),
-                TextButton(
-                  onPressed: () => _addConsumption(10),
-                  child: const Text('Medium'),
+                const UserPseudo(),
+                const Text(
+                  'Tank',
+                  style: TextStyle(fontSize: 21),
                 ),
-                TextButton(
-                  onPressed: () => _addConsumption(20),
-                  child: const Text('Hard'),
+                SizedBox(
+                  width: 300,
+                  height: 20,
+                  child: Stack(
+                    children: [
+                      SizedBox.expand(
+                        child: LinearProgressIndicator(
+                          value: _percentLifePoint,
+                          backgroundColor: Colors.cyan[100],
+                          valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          _lifePoint.toString() + "PV",
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () => _addConsumption(5),
+                      child: const Text('Soft'),
+                    ),
+                    TextButton(
+                      onPressed: () => _addConsumption(10),
+                      child: const Text('Medium'),
+                    ),
+                    TextButton(
+                      onPressed: () => _addConsumption(20),
+                      child: const Text('Hard'),
+                    ),
+                  ],
+                ),
+                for (int i = 0; i < _historicConsumption.length; i++)
+                  Text(_historicConsumption[i]),
+                const TextButton(
+                  onPressed: null,
+                  child: Text('Fin de soirée'),
                 ),
               ],
             ),
-            for (int i = 0; i < _historicConsumption.length; i++)
-              Text(_historicConsumption[i]),
-            const TextButton(
-              onPressed: null,
-              child: Text('Fin de soirée'),
-            ),
-          ],
+          ),
         ),
-      ),
-      ),
     );
   }
 }

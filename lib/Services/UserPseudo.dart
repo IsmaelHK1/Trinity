@@ -12,10 +12,10 @@ class UserPseudo extends StatefulWidget {
 class _UserPseudoState extends State<UserPseudo> {
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserData>(context);
+    final pseudo = Provider.of<UserData>(context).pseudo;
     return Text(
-        user.pseudo.toString(),
-        style: const TextStyle(fontSize: 27),
+        pseudo.toString(),
+        style: const TextStyle(fontSize: 28),
     );
   }
 }
