@@ -20,4 +20,20 @@ class UserData {
     this.about,
     this.accountCreated,
   });
+
+  UserData.fromDocumentSnapshot({required DocumentSnapshot doc}) {
+    pseudo = doc['pseudo'];
+    email = doc['email'];
+    birthday = doc['birthday'];
+    about = doc['about'];
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'pseudo': pseudo,
+      'email': email,
+      'birthday': birthday,
+      'about': about,
+    };
+  }
 }
