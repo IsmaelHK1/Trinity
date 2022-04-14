@@ -3,10 +3,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trinity/Screens/MenuPage/Home_Page.dart';
 import 'package:trinity/Screens/classChoiceScreen.dart/classChoiceScreen.dart';
 import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
-import 'package:trinity/Screens/SignUpPage/SignUpScreen.dart';
 import 'package:trinity/common/utils/BordersDesign.dart';
 import 'package:trinity/widgets/AuthContainer.dart';
 
@@ -116,7 +116,8 @@ class _LoginFormState extends State<LogInForm> {
               style: TextStyle(color: Colors.grey, fontStyle: FontStyle.italic),
             ),
             onPressed: () {
-              Navigator.of(context).push(
+              Navigator.push(
+                context,
                 MaterialPageRoute(
                   builder: (context) => const ClassChoiceScreen(),
                 ),

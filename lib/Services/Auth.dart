@@ -14,7 +14,7 @@ class CurrentUser extends ChangeNotifier {
 
   // Permet l'inscription de l'utilisateur
   Future<bool> signUpUser(String email, String password, String pseudo,
-      String age, String about) async {
+      String age, String role, String about) async {
     bool returnValue = false;
     UserData _localUser = UserData();
 
@@ -25,6 +25,7 @@ class CurrentUser extends ChangeNotifier {
       _localUser.pseudo = pseudo;
       _localUser.email = _authResult.user!.email;
       _localUser.birthday = age;
+      _localUser.role = role;
       _localUser.about = about;
       bool _isDone = await FireStoreDatabase().CreateUser(_localUser);
 
