@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trinity/Common/models/UserData.dart';
+import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Services/Party.dart';
 
 import '../Services/UserPseudo.dart';
@@ -70,11 +71,10 @@ class _PartyPageState extends State<PartyPage> {
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<UserData>(context);
 
     return StreamProvider<UserData>.value(
         initialData: UserData(),
-        value: PartyService(UserData().uid).user,
+        value: PartyService(CurrentUser().getCurrentUser?.uid).user,
         child: Scaffold(
           appBar: AppBar(
             // Here we take the value from the MyHomePage object that was created by
@@ -84,10 +84,6 @@ class _PartyPageState extends State<PartyPage> {
           body: Center(
             child: Column(
               children: [
-                Text(
-                  user.pseudo.toString(),
-                  style: TextStyle(fontSize: 28),
-                ),
                 const UserPseudo(),
                 const Text(
                   'Tank',
