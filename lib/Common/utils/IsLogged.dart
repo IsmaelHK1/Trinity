@@ -47,7 +47,7 @@ class _IsLoggedState extends State<IsLogged> {
         returnValue = const LogInScreen();
         break;
       case AuthStatus.loggedIn:
-        returnValue = const PartyPage();
+        returnValue = const MyHomePage();
         break;
     }
     return returnValue;

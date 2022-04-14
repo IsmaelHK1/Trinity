@@ -10,7 +10,7 @@ class PartyService {
   PartyService(this.uid);
 
   final CollectionReference userCollection =
-  FirebaseFirestore.instance.collection('user');
+      FirebaseFirestore.instance.collection('users');
 
   // Future<void> addConsumption(int soft, int medium, int hard) async {
   //   return await consumptionCollection.doc(uid).set({
@@ -29,5 +29,4 @@ class PartyService {
   Stream<UserData> get user {
     return userCollection.doc(uid).snapshots().map(_userFromSnapshot);
   }
-
 }
