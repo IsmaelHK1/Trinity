@@ -2,6 +2,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trinity/Common/utils/checkRoleInput.dart';
+import 'package:trinity/Screens/LogInPage/LogInScreen.dart';
 import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/checkAge.dart';
 import 'package:trinity/common/utils/BordersDesign.dart';
@@ -19,12 +21,14 @@ class SignUpFormState extends State<SignUpForm> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController ageController = TextEditingController();
+  TextEditingController roleController = TextEditingController();
   TextEditingController aboutController = TextEditingController();
 
   void _signUpUser(
     String email,
     String password,
     String pseudo,
+    String role,
     String about,
     String birthdate,
     BuildContext context,
@@ -33,8 +37,13 @@ class SignUpFormState extends State<SignUpForm> {
 
     try {
       if (await _currentUser.signUpUser(
-          email, password, pseudo, about, birthdate)) {
-        Navigator.pop(context);
+          email, password, pseudo, role, about, birthdate)) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const LogInScreen(),
+          ),
+        );
       }
     } catch (e) {
       if (kDebugMode) {
@@ -95,6 +104,15 @@ class SignUpFormState extends State<SignUpForm> {
             height: 10.0,
           ),
           TextFormField(
+            controller: roleController,
+            decoration: textInputDecoration.copyWith(
+                prefixIcon: const Icon(Icons.text_fields),
+                hintText: 'Choose : TANK - HEAL - DPS'),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          TextFormField(
             controller: aboutController,
             decoration: textInputDecoration.copyWith(
                 prefixIcon: const Icon(Icons.text_fields),
@@ -129,13 +147,26 @@ class SignUpFormState extends State<SignUpForm> {
             ),
             onPressed: () {
               if (isAdult(ageController.text) == true) {
-                _signUpUser(
-                    emailController.text,
-                    passwordController.text,
-                    pseudoController.text,
-                    ageController.text,
-                    aboutController.text,
-                    context);
+                if (checkRoleInput(roleController.text) == true) {
+                  _signUpUser(
+                      emailController.text,
+                      passwordController.text,
+                      pseudoController.text,
+                      ageController.text,
+                      roleController.text.toUpperCase(),
+                      aboutController.text,
+                      context);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Bad role input',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                      duration: Duration(seconds: 3),
+                    ),
+                  );
+                }
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(

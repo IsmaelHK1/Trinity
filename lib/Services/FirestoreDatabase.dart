@@ -16,7 +16,7 @@ class FireStoreDatabase {
         'birthdate': user.birthday,
         'about': user.about,
         'accountCreated': Timestamp.now(),
-        'role': 'role a définir',
+        'role': user.role,
       });
       returnValue = true;
       if (returnValue == true) {}
