@@ -3,25 +3,27 @@ import 'package:provider/provider.dart';
 import 'package:trinity/Common/models/UserData.dart';
 import 'package:trinity/Services/Party.dart';
 
-void main() {
-  runApp(const MyPage());
-}
+import '../Services/UserPseudo.dart';
 
-class MyPage extends StatelessWidget {
-  const MyPage({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-      ),
-      home: const PartyPage(),
-    );
-  }
-}
+// void main() {
+//   runApp(const MyPage());
+// }
+//
+// class MyPage extends StatelessWidget {
+//   const MyPage({Key? key}) : super(key: key);
+//
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.yellow,
+//       ),
+//       home: const PartyPage(),
+//     );
+//   }
+// }
 
 class PartyPage extends StatefulWidget {
   const PartyPage({Key? key}) : super(key: key);
@@ -66,16 +68,12 @@ class _PartyPageState extends State<PartyPage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return /*StreamProvider<UserData>.value(
+
+
+    return StreamProvider<UserData>.value(
         initialData: UserData(),
         value: PartyService(UserData().uid).user,
-        child:*/ Scaffold(
+        child: Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -84,10 +82,11 @@ class _PartyPageState extends State<PartyPage> {
       body: Center(
         child: Column(
           children: [
-            const Text(
-              'Shadowolf',
-              style: TextStyle(fontSize: 28),
-            ),
+            // Text(
+            //
+            //   style: TextStyle(fontSize: 28),
+            // ),
+            const UserPseudo(),
             const Text(
               'Tank',
               style: TextStyle(fontSize: 21),
@@ -138,7 +137,7 @@ class _PartyPageState extends State<PartyPage> {
           ],
         ),
       ),
-      // ),
+      ),
     );
   }
 }
