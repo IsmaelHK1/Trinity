@@ -1,6 +1,4 @@
-// ignore_for_file: file_names
-
-//import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class UserData {
@@ -9,7 +7,7 @@ class UserData {
   String? email;
   String? birthday;
   String? about;
-  //Timestamp? accountCreated;
+  Timestamp? accountCreated;
 
   UserData({
     this.uid,
@@ -17,6 +15,6 @@ class UserData {
     this.email,
     this.birthday,
     this.about,
-  //  this.accountCreated,
+    this.accountCreated,
   });
 }

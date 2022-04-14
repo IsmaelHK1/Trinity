@@ -2,22 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trinity/Class/user.dart';
 
-// utiliser pour creer des utilisateur fake
-//List<UserData> createGroupTest(){
-  //UserData user1 = UserData("opozi",'Isma','isma@123.com','271201','Developper');
-  //UserData user2 = UserData("bastien", Icons.account_circle_outlined);
-  //UserData user3 = UserData("robert", Icons.account_circle_outlined);
-  //UserData user4 = UserData("byu", Icons.account_circle_outlined);
-  //UserData user5 = UserData("marchestp", Icons.account_circle_outlined);
-  //UserData user6 = UserData("marchestp x2", Icons.account_circle_outlined);
-  //UserData user7 = UserData("marchestp x2", Icons.account_circle_outlined);
+import 'getUser.dart';
 
-  // on ne peut ajouter que 4 personne sinon gros beug : /
-
- // List<UserData> group = [user1];
-  //return group;
-
-//}
 
 class PostGame_page extends StatelessWidget {
 
@@ -26,7 +12,7 @@ class PostGame_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  //  final group = createGroupTest();
+    //  final group = createGroupTest();
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(24,24,25,1.0),
@@ -144,7 +130,7 @@ class PostGame_page extends StatelessWidget {
                                     ),
                                   ),
                                   decoration: BoxDecoration(
-                                    color : Colors.purple,
+                                    color : Colors.deepPurple,
                                   ),
                                 )
                               ],
@@ -218,27 +204,29 @@ Widget _buildPopupDialog(BuildContext context) {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-      Container(
-        width: double.infinity,
-        height: 40,
-        color: Colors.white,
-          child: Center(
-            child: TextField(
-            decoration: InputDecoration(
-            hintText: 'Search',
-            prefixIcon: Icon(Icons.search),),
+        Container(
+            width: double.infinity,
+            height: 40,
+            color: Colors.white,
+            child: Center(
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Search',
+                    prefixIcon: Icon(Icons.search),),
+                )
             )
-          )
-      )
+        )
       ],),
     actions: <Widget>[
-       TextButton(
+      TextButton(
         onPressed: () {
           Navigator.of(context).pop();
         },
-        child: const Text('Close', style: TextStyle(color: Colors.blue),),
+        child: const Text('Close', style: TextStyle(color: Colors.blue)),
       ),
+      TextButton(onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const AddUser()));
+      }, child: const Text('Ajouter à la partie')),
     ],
   );
 }
-
