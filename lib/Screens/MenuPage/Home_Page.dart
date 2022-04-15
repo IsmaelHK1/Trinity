@@ -8,6 +8,8 @@ import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
 import 'package:trinity/Screens/MenuPage/second.dart';
 
+import '../../Widgets/PartyContainer.dart';
+
 class TopBar extends StatelessWidget {
   const TopBar({Key? key}) : super(key: key);
 
@@ -139,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SecondPage()),
+                    MaterialPageRoute(builder: (context) => const PartyPage()),
                   );
                 }, //Change de page
                 child: const Icon(
