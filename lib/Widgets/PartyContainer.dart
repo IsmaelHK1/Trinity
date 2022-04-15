@@ -3,42 +3,36 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trinity/Common/models/UserData.dart';
+import 'package:trinity/Screens/MenuPage/Home_Page.dart';
 import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Services/Party.dart';
 
 import '../Services/UserPseudo.dart';
 
-// void main() {
-//   runApp(const MyPage());
-// }
-//
-// class MyPage extends StatelessWidget {
-//   const MyPage({Key? key}) : super(key: key);
-//
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.yellow,
-//       ),
-//       home: const PartyPage(),
-//     );
-//   }
-// }
+void main() {
+  runApp(const MyPage());
+}
+
+class MyPage extends StatelessWidget {
+  const MyPage({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    // Permet d'écouter un changement
+    return ChangeNotifierProvider(
+      create: (context) => CurrentUser(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Projet Trinity',
+        home: PartyPage(),
+      ),
+    );
+  }
+}
 
 class PartyPage extends StatefulWidget {
   const PartyPage({Key? key}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   @override
   State<PartyPage> createState() => _PartyPageState();
@@ -72,70 +66,159 @@ class _PartyPageState extends State<PartyPage> {
   @override
   Widget build(BuildContext context) {
 
-    return StreamProvider<UserData>.value(
+    return /*StreamProvider<UserData>.value(
         initialData: UserData(),
         value: PartyService(CurrentUser().getCurrentUser?.uid).user,
-        child: Scaffold(
-          appBar: AppBar(
-            // Here we take the value from the MyHomePage object that was created by
-            // the App.build method, and use it to set our appbar title.
-            title: Text("Soirée"),
+        child: */
+      Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            "Party",
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Lemon Tea',
+            ),
           ),
-          body: Center(
-            child: Column(
-              children: [
-                const UserPseudo(),
-                const Text(
-                  'Tank',
-                  style: TextStyle(fontSize: 21),
+          backgroundColor: Colors.blueAccent,
+          centerTitle: true,
+        ),
+        backgroundColor: const Color.fromRGBO(24, 24, 25, 1.0),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              // const UserPseudo(),
+              const SizedBox(
+                height: 30.0,
+              ),
+              const Text(
+                'Shadowolf',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Lemon Tea',
+                  fontSize: 28.0,
                 ),
-                SizedBox(
-                  width: 300,
-                  height: 20,
-                  child: Stack(
-                    children: [
-                      SizedBox.expand(
-                        child: LinearProgressIndicator(
-                          value: _percentLifePoint,
-                          backgroundColor: Colors.cyan[100],
-                          valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
-                        ),
-                      ),
-                      Center(
-                        child: Text(
-                          _lifePoint.toString() + "PV",
-                        ),
-                      ),
-                    ],
-                  ),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              const Text(
+                'Tank',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Lemon Tea',
+                  fontSize: 21.0,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              const SizedBox(
+                height: 60.0,
+              ),
+              SizedBox(
+                width: 300,
+                height: 20,
+                child: Stack(
                   children: [
-                    TextButton(
-                      onPressed: () => _addConsumption(5),
-                      child: const Text('Soft'),
+                    SizedBox.expand(
+                      child: LinearProgressIndicator(
+                        value: _percentLifePoint,
+                        backgroundColor: Colors.red,
+                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
+                      ),
                     ),
-                    TextButton(
-                      onPressed: () => _addConsumption(10),
-                      child: const Text('Medium'),
-                    ),
-                    TextButton(
-                      onPressed: () => _addConsumption(20),
-                      child: const Text('Hard'),
+                    Center(
+                      child: Text(
+                        _lifePoint.toString() + " PV",
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'Lemon Tea',
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                for (int i = 0; i < _historicConsumption.length; i++)
-                  Text(_historicConsumption[i]),
-                const TextButton(
-                  onPressed: null,
-                  child: Text('Fin de soirée'),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () => _addConsumption(5),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: const Text(
+                      'Soft',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Lemon Tea',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 14.0,
+                  ),
+                  TextButton(
+                    onPressed: () => _addConsumption(10),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: const Text(
+                      'Medium',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Lemon Tea',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 14.0,
+                  ),
+                  TextButton(
+                    onPressed: () => _addConsumption(20),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: const Text(
+                      'Hard',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Lemon Tea',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              for (int i = 0; i < _historicConsumption.length; i++)
+                Text(
+                  _historicConsumption[i],
+                  style: const TextStyle(
+                    color: Colors.red,
+                    fontFamily: 'Lemon Tea',
+                  ),
                 ),
-              ],
-            ),
+              const SizedBox(
+                height: 30.0,
+              ),
+              TextButton(
+                onPressed: () => MaterialPageRoute(builder: (context) => const MyHomePage()),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                ),
+                child: const Text(
+                  'Fin de soirée',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Lemon Tea',
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
+      ),
     );
   }
 }
