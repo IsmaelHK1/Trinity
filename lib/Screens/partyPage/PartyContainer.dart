@@ -1,13 +1,7 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:trinity/Common/models/UserData.dart';
 import 'package:trinity/Screens/MenuPage/Home_Page.dart';
-import 'package:trinity/Services/Auth.dart';
-import 'package:trinity/Services/Party.dart';
 
-import '../Services/UserPseudo.dart';
 
 class PartyPage extends StatefulWidget {
   const PartyPage({Key? key}) : super(key: key);
@@ -27,8 +21,32 @@ class _PartyPageState extends State<PartyPage> {
       _lifePoint -= damage;
       _percentLifePoint = _lifePoint * 100 / _maxLifePoint / 100;
 
-      if (_lifePoint - damage <= 0) {
-        MaterialPageRoute(builder: (context) => const MyHomePage());
+      if (_lifePoint <= 20 && _lifePoint > 0) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'Care, you are about to be out of health !',
+              style: TextStyle(color: Colors.red),
+            ),
+            duration: Duration(seconds: 1),
+          ),
+        );
+      }
+
+      if (_lifePoint <= 0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const MyHomePage()),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'END of the game ! You are out of health, take a rest now !',
+              style: TextStyle(color: Colors.red),
+            ),
+            duration: Duration(seconds: 2),
+          ),
+        );
       }
 
       switch (damage) {
@@ -186,8 +204,12 @@ class _PartyPageState extends State<PartyPage> {
               height: 30.0,
             ),
             TextButton(
-              onPressed: () =>
+              onPressed: () {
+                Navigator.push(
+                  context,
                   MaterialPageRoute(builder: (context) => const MyHomePage()),
+                );
+              },
               style: TextButton.styleFrom(
                 backgroundColor: Colors.blue,
               ),

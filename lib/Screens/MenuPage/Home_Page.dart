@@ -8,7 +8,7 @@ import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
 import 'package:trinity/Screens/MenuPage/second.dart';
 
-import '../../Widgets/PartyContainer.dart';
+import '../partyPage/PartyContainer.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({Key? key}) : super(key: key);
