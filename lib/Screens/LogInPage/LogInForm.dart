@@ -1,13 +1,10 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trinity/Screens/MenuPage/Home_Page.dart';
-import 'package:trinity/Screens/classChoiceScreen.dart/classChoiceScreen.dart';
-import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
-import 'package:trinity/common/utils/BordersDesign.dart';
+import 'package:trinity/Common/utils/borderDesign.dart';
+import 'package:trinity/Screens/classChoiceScreen.dart/classChoiceScreen.dart';
+import 'package:trinity/Services/authentificationService.dart';
 import 'package:trinity/widgets/AuthContainer.dart';
 
 class LogInForm extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:trinity/Common/models/UserData.dart';
-import 'package:trinity/Services/FirestoreDatabase.dart';
+import 'package:trinity/Services/firestoreDatabase.dart';
 
 class PartyService {
   final String? uid;

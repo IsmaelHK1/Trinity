@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trinity/Common/models/UserData.dart';
-import 'package:trinity/Screens/ProfilePage/edit_profile_page.dart';
-import 'package:trinity/Common/utils/user_preferences.dart';
+import 'package:trinity/Screens/ProfilePage/editProfilScreen.dart';
+import 'package:trinity/Common/utils/userPreferences.dart';
 import 'package:trinity/Widgets/appbar_widget.dart';
 import 'package:trinity/Widgets/button_widget.dart';
 import 'package:trinity/Widgets/numbers_widget.dart';

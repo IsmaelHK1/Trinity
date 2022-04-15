@@ -3,9 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trinity/Common/utils/checkRoleInput.dart';
-import 'package:trinity/Screens/LogInPage/LogInScreen.dart';
-import 'package:trinity/Services/Auth.dart';
+import 'package:trinity/Screens/LogInPage/logInScreen.dart';
 import 'package:trinity/Common/utils/checkAge.dart';
+import 'package:trinity/Services/authentificationService.dart';
 import 'package:trinity/common/utils/BordersDesign.dart';
 import 'package:trinity/widgets/AuthContainer.dart';
 

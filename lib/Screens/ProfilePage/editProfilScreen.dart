@@ -7,7 +7,7 @@ import 'package:trinity/Widgets/appbar_widget.dart';
 import 'package:trinity/Widgets/button_widget.dart';
 import 'package:trinity/Widgets/profile_widget.dart';
 import 'package:trinity/Widgets/textfield_widget.dart';
-import '../../Common/utils/user_preferences.dart';
+import '../../Common/utils/userPreferences.dart';
 
 class EditProfilePage extends StatefulWidget {
   @override

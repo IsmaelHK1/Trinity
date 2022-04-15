@@ -1,14 +1,10 @@
-// ignore: file_names
-// ignore_for_file: file_names, duplicate_ignore
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trinity/Screens/ProfilePage/profile_page.dart';
-import 'package:trinity/Services/Auth.dart';
+import 'package:trinity/Screens/MenuPage/drawPage.dart';
+import 'package:trinity/Screens/ProfilePage/profilScreen.dart';
+import 'package:trinity/Screens/postGamePage.dart/postGameScreen.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
-import 'package:trinity/Screens/MenuPage/second.dart';
-import 'package:trinity/Screens/postGamePage.dart/postgame_Page.dart';
-import '../partyPage/PartyContainer.dart';
+import 'package:trinity/Services/authentificationService.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({Key? key}) : super(key: key);
@@ -114,7 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PostGame_page()),
+                    MaterialPageRoute(
+                        builder: (context) => const PostGame_page()),
                   );
                 }, //Change de page
                 child: const Icon(
@@ -141,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SecondPage()),
+                    MaterialPageRoute(builder: (context) => const drawPage()),
                   );
                 }, //Change de page
                 child: const Icon(
@@ -168,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SecondPage()),
+                    MaterialPageRoute(builder: (context) => const drawPage()),
                   );
                 }, //Change de page
                 child: const Icon(
@@ -193,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                  MaterialPageRoute(builder: (context) => const drawPage()),
                 );
               }, //Change de page
             ),

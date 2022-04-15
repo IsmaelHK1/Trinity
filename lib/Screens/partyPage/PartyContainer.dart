@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trinity/Screens/MenuPage/Home_Page.dart';
+import 'package:trinity/Screens/MenuPage/homePage.dart';
 
 class PartyPage extends StatefulWidget {
   const PartyPage({Key? key}) : super(key: key);

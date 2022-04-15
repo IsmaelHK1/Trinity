@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:trinity/Screens/LogInPage/LogInForm.dart';
-import 'package:trinity/Screens/LogInPage/LogInScreen.dart';
-import 'package:trinity/Screens/SignUpPage/SignUpForm.dart';
 import 'package:trinity/Screens/SignUpPage/SignUpScreen.dart';
 import 'package:trinity/Widgets/roleContainer.dart';
 
