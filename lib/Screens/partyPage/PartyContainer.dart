@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:trinity/Screens/MenuPage/Home_Page.dart';
-
 
 class PartyPage extends StatefulWidget {
   const PartyPage({Key? key}) : super(key: key);
@@ -11,7 +9,7 @@ class PartyPage extends StatefulWidget {
 }
 
 class _PartyPageState extends State<PartyPage> {
-  final int _maxLifePoint = 120;
+  final int _maxLifePoint = 100;
   late int _lifePoint = _maxLifePoint;
   double _percentLifePoint = 1;
   final List<String> _historicConsumption = <String>[];
@@ -34,10 +32,10 @@ class _PartyPageState extends State<PartyPage> {
       }
 
       if (_lifePoint <= 0) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const MyHomePage()),
-        );
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const MyHomePage()),
+            (route) => false);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
@@ -90,7 +88,7 @@ class _PartyPageState extends State<PartyPage> {
               height: 30.0,
             ),
             const Text(
-              'Shadowolf',
+              'kierhann',
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Lemon Tea',
@@ -101,7 +99,7 @@ class _PartyPageState extends State<PartyPage> {
               height: 10.0,
             ),
             const Text(
-              'Tank',
+              'DPS',
               style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Lemon Tea',
