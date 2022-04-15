@@ -7,100 +7,107 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  // static const backcolor = Color(0x00181819);
+  // static const titlecolor = Color(0x00002ce5);
+  // static const textcolor = Color(0x0051e1e6);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Notifications',
+            style: TextStyle(color: Color.fromARGB(255, 2, 19, 214)),
+          ),
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(221, 26, 26, 27),
+          // leading: IconButton(
+          //   icon: Icons.arrow_back,
+          //   onPressed: () {  },
+          // ),
+        ),
+        body: ListView.separated(
+            physics: const ClampingScrollPhysics(),
+            padding: EdgeInsets.zero,
+            itemBuilder: (context, index) {
+              return const ListTile(
+                title: Text('Test Notif Bar',
+                    style: TextStyle(color: Colors.blueGrey)),
+                subtitle: Text('Lorem Ipsum join the bar at ....',
+                    style: TextStyle(color: Color.fromARGB(255, 20, 51, 59))),
+                enabled: true,
+                //onTap: Navigator.push(context, MaterialPageRoute(builder: (context) =>  NotificationsDetails()));,
+              );
+            },
+            separatorBuilder: (context, index) {
+              return const Divider();
+            },
+            itemCount: 10),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class NotificationsDetails extends StatelessWidget {
+  const NotificationsDetails({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+    return MaterialApp(
+        title: 'Welcome to Flutter',
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text(
+                'Trinity',
+                style: TextStyle(color: Color.fromARGB(255, 2, 19, 214)),
+              ),
+              centerTitle: true,
+              backgroundColor: const Color.fromARGB(221, 26, 26, 27),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            body: FittedBox(
+              child: Container(
+                width: 700,
+                height: 700,
+                margin: EdgeInsets.all(20),
+                padding: EdgeInsets.all(100),
+                decoration: BoxDecoration(
+                    color: Colors.white60,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(8.0),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Color.fromARGB(255, 53, 52, 50),
+                          blurRadius: 2.0)
+                    ]),
+                child: Column(
+                  children: [
+                    Text(
+                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                        style: TextStyle(color: Colors.black87)),
+                    SizedBox(height: 16.0),
+                    Image(image: AssetImage('assets/image/Bar-Img.jpg')),
+                    SizedBox(height: 16.0),
+                    Text(
+                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 247, 236, 218))),
+                    SizedBox(height: 16.0),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Text('11/Feb/2021 04:42 PM',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 247, 236, 218))),
+                    )
+                  ],
+                ),
+              ),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+            floatingActionButton: FloatingActionButton(
+                child: Icon(Icons.add_task),
+                onPressed: () {
+                  print('You pressed the button.');
+                })));
   }
 }
