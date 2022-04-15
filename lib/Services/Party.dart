@@ -14,13 +14,6 @@ class PartyService {
   final CollectionReference userCollection =
       FirebaseFirestore.instance.collection('user');
 
-  // Future<void> addConsumption(int soft, int medium, int hard) async {
-  //   return await consumptionCollection.doc(uid).set({
-  //     'soft' : soft,
-  //     'medium' : medium,
-  //     'hard' : hard,
-  //   });
-  // }
   UserData _userFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
       uid: uid,

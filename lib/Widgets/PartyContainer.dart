@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trinity/Common/models/UserData.dart';
+import 'package:trinity/Screens/MenuPage/Home_Page.dart';
 import 'package:trinity/Services/Party.dart';
 
 import '../Services/UserPseudo.dart';
@@ -22,6 +23,10 @@ class _PartyPageState extends State<PartyPage> {
     setState(() {
       _lifePoint -= damage;
       _percentLifePoint = _lifePoint * 100 / _maxLifePoint / 100;
+
+      if (_lifePoint - damage <= 0) {
+        MaterialPageRoute(builder: (context) => const MyHomePage());
+      }
 
       switch (damage) {
         case 5:
