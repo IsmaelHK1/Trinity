@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Screens/LogInPage/LogInScreen.dart';
 import 'package:trinity/Screens/MenuPage/Home_Page.dart';
+import 'package:trinity/Widgets/PartyContainer.dart';
 
 // Défini deux états d'auth possible via une liste d'enum
 enum AuthStatus {

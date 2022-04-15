@@ -8,6 +8,8 @@ import 'package:trinity/Services/Auth.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
 import 'package:trinity/Screens/MenuPage/second.dart';
 
+import '../../Widgets/PartyContainer.dart';
+
 class TopBar extends StatelessWidget {
   const TopBar({Key? key}) : super(key: key);
 
@@ -36,6 +38,19 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+void signOut(BuildContext context) async {
+  CurrentUser _currentUser = Provider.of<CurrentUser>(context, listen: false);
+  bool _returnString = await _currentUser.SignOut();
+
+  if (_returnString == true) {
+    // Envoie à la page et supprime toutes clear les anciennes routes
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const IsLogged()),
+        (route) => false);
+  }
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -49,17 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // Log out
             icon: const Icon(Icons.logout),
             onPressed: () async {
-              CurrentUser _currentUser =
-                  Provider.of<CurrentUser>(context, listen: false);
-              bool _returnString = await _currentUser.SignOut();
-
-              if (_returnString == true) {
-                // Envoie à la page et supprime toutes clear les anciennes routes
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => const IsLogged()),
-                    (route) => false);
-              }
+              signOut(context);
             },
           )
         ],
@@ -136,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SecondPage()),
+                    MaterialPageRoute(builder: (context) => const PartyPage()),
                   );
                 }, //Change de page
                 child: const Icon(
