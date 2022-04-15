@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trinity/Common/models/UserData.dart';
+import '../partyPage/PartyContainer.dart';
 
 // utiliser pour creer des utilisateur fake
 List<UserData> createGroupTest() {
@@ -154,18 +155,27 @@ class PostGame_page extends StatelessWidget {
             Stack(
               children: <Widget>[
                 Align(
+
                   alignment: Alignment.bottomRight,
                   child: Container(
                     alignment: Alignment.center,
                     margin: const EdgeInsets.only(bottom: 0, top: 20),
                     width: 280,
                     height: 60,
-                    child: const Text('LANCER LE JEU',
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 37,
-                            fontFamily: 'Louis George Cafe Bold.ttf',
-                            fontWeight: FontWeight.bold)),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PartyPage()),
+                        );
+                      },
+                      child: const Text('LANCER LE JEU',
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 37,
+                              fontFamily: 'Louis George Cafe Bold.ttf',
+                              fontWeight: FontWeight.bold)),
+                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       gradient: const LinearGradient(
