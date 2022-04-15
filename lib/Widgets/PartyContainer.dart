@@ -9,28 +9,6 @@ import 'package:trinity/Services/Party.dart';
 
 import '../Services/UserPseudo.dart';
 
-void main() {
-  runApp(const MyPage());
-}
-
-class MyPage extends StatelessWidget {
-  const MyPage({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    // Permet d'écouter un changement
-    return ChangeNotifierProvider(
-      create: (context) => CurrentUser(),
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Projet Trinity',
-        home: PartyPage(),
-      ),
-    );
-  }
-}
-
 class PartyPage extends StatefulWidget {
   const PartyPage({Key? key}) : super(key: key);
 
