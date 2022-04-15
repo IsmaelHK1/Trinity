@@ -19,7 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
     UserData user = UserPreferences.myUser;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 223, 240, 239),
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: buildAppBar(context),
       body: ListView(
         physics: BouncingScrollPhysics(),
@@ -52,12 +52,13 @@ class _ProfilePageState extends State<ProfilePage> {
         children: [
           Text(
             user.pseudo!,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white),
           ),
           const SizedBox(height: 4),
           Text(
             user.email!,
-            style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           )
         ],
       );
@@ -74,14 +75,18 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             Text(
               'About',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueAccent),
             ),
             const SizedBox(height: 16),
-            Text(
-              user.about!,
-              style: TextStyle(
-                  fontSize: 16, height: 1.4, fontWeight: FontWeight.bold),
-            ),
+            Text(user.about!,
+                style: TextStyle(
+                    fontSize: 16,
+                    height: 1.4,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
           ],
         ),
       );
