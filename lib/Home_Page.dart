@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trinity/adduser.dart';
 import 'package:trinity/postgame_Page.dart';
 
 class TopBar extends StatelessWidget {
@@ -36,8 +37,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   @override
-  Widget build(BuildContext context) {
 
+  Widget build(BuildContext context) {
+ //   print(GetUserName("NJ8vVVTnWJP2UD3xHdtH56HbCOy1"));
     return Scaffold(
         backgroundColor: const Color.fromRGBO(24,24,25,1.0),
         appBar: AppBar(

@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trinity/Class/user.dart';
 
-import 'getUser.dart';
+import 'adduser.dart';
 
 
 class PostGame_page extends StatelessWidget {
@@ -41,13 +42,15 @@ class PostGame_page extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(15),
                     )
-                )
+                ),
+                
               ],
             ),
 
             Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+
                   /* Icon inviter des amis*/
                   Container(
                     alignment: Alignment.center,
@@ -60,10 +63,12 @@ class PostGame_page extends StatelessWidget {
                     ),
                     child: InkWell(
                       onTap: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) =>_buildPopupDialog(context)
-                        );
+                        // showDialog(
+                        //     context: context,
+                        //     builder: (BuildContext context) =>_buildPopupDialog(context)
+                        // );
+                      // var a  = find("isma") ;
+                       //print(a) ; 
                       },
                       child: Icon(
                         Icons.person_add_alt_1_sharp,
@@ -225,7 +230,7 @@ Widget _buildPopupDialog(BuildContext context) {
         child: const Text('Close', style: TextStyle(color: Colors.blue)),
       ),
       TextButton(onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const AddUser()));
+        //Navigator.push(context, MaterialPageRoute(builder: (context) => const getUser()));
       }, child: const Text('Ajouter à la partie')),
     ],
   );
