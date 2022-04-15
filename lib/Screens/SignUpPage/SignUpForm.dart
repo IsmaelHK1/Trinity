@@ -6,8 +6,9 @@ import 'package:trinity/Common/utils/checkRoleInput.dart';
 import 'package:trinity/Screens/LogInPage/logInScreen.dart';
 import 'package:trinity/Common/utils/checkAge.dart';
 import 'package:trinity/Services/authentificationService.dart';
-import 'package:trinity/common/utils/BordersDesign.dart';
 import 'package:trinity/widgets/AuthContainer.dart';
+
+import '../../Common/utils/borderDesign.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
