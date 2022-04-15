@@ -114,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SecondPage()),
+                    MaterialPageRoute(builder: (context) => const PartyPage()),
                   );
                 }, //Change de page
                 child: const Icon(
@@ -141,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PartyPage()),
+                    MaterialPageRoute(builder: (context) => const SecondPage()),
                   );
                 }, //Change de page
                 child: const Icon(

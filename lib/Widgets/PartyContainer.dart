@@ -31,7 +31,7 @@ class _PartyPageState extends State<PartyPage> {
         MaterialPageRoute(builder: (context) => const MyHomePage());
       }
 
-      switch(damage) {
+      switch (damage) {
         case 5:
           _historicConsumption.add("Soft: -" + damage.toString() + " PV");
           break;
@@ -47,123 +47,69 @@ class _PartyPageState extends State<PartyPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return /*StreamProvider<UserData>.value(
         initialData: UserData(),
         value: PartyService(CurrentUser().getCurrentUser?.uid).user,
         child: */
-      Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "Party",
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'Lemon Tea',
-            ),
+        Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Party",
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Lemon Tea',
           ),
-          backgroundColor: Colors.blueAccent,
-          centerTitle: true,
         ),
-        backgroundColor: const Color.fromRGBO(24, 24, 25, 1.0),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              // const UserPseudo(),
-              const SizedBox(
-                height: 30.0,
+        backgroundColor: Colors.blueAccent,
+        centerTitle: true,
+      ),
+      backgroundColor: const Color.fromRGBO(24, 24, 25, 1.0),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // const UserPseudo(),
+            const SizedBox(
+              height: 30.0,
+            ),
+            const Text(
+              'Shadowolf',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Lemon Tea',
+                fontSize: 28.0,
               ),
-              const Text(
-                'Shadowolf',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Lemon Tea',
-                  fontSize: 28.0,
-                ),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            const Text(
+              'Tank',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Lemon Tea',
+                fontSize: 21.0,
               ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              const Text(
-                'Tank',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Lemon Tea',
-                  fontSize: 21.0,
-                ),
-              ),
-              const SizedBox(
-                height: 60.0,
-              ),
-              SizedBox(
-                width: 300,
-                height: 20,
-                child: Stack(
-                  children: [
-                    SizedBox.expand(
-                      child: LinearProgressIndicator(
-                        value: _percentLifePoint,
-                        backgroundColor: Colors.red,
-                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
-                      ),
-                    ),
-                    Center(
-                      child: Text(
-                        _lifePoint.toString() + " PV",
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Lemon Tea',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            ),
+            const SizedBox(
+              height: 60.0,
+            ),
+            SizedBox(
+              width: 300,
+              height: 20,
+              child: Stack(
                 children: [
-                  TextButton(
-                    onPressed: () => _addConsumption(5),
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                    ),
-                    child: const Text(
-                      'Soft',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Lemon Tea',
-                      ),
+                  SizedBox.expand(
+                    child: LinearProgressIndicator(
+                      value: _percentLifePoint,
+                      backgroundColor: Colors.red,
+                      valueColor:
+                          const AlwaysStoppedAnimation<Color>(Colors.blue),
                     ),
                   ),
-                  const SizedBox(
-                    width: 14.0,
-                  ),
-                  TextButton(
-                    onPressed: () => _addConsumption(10),
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                    ),
-                    child: const Text(
-                      'Medium',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Lemon Tea',
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 14.0,
-                  ),
-                  TextButton(
-                    onPressed: () => _addConsumption(20),
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                    ),
-                    child: const Text(
-                      'Hard',
-                      style: TextStyle(
+                  Center(
+                    child: Text(
+                      _lifePoint.toString() + " PV",
+                      style: const TextStyle(
                         color: Colors.black,
                         fontFamily: 'Lemon Tea',
                       ),
@@ -171,35 +117,90 @@ class _PartyPageState extends State<PartyPage> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              for (int i = 0; i < _historicConsumption.length; i++)
-                Text(
-                  _historicConsumption[i],
-                  style: const TextStyle(
-                    color: Colors.red,
-                    fontFamily: 'Lemon Tea',
+            ),
+            const SizedBox(
+              height: 15.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () => _addConsumption(5),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: const Text(
+                    'Soft',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Lemon Tea',
+                    ),
                   ),
                 ),
-              const SizedBox(
-                height: 30.0,
-              ),
-              TextButton(
-                onPressed: () => MaterialPageRoute(builder: (context) => const MyHomePage()),
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                const SizedBox(
+                  width: 14.0,
                 ),
-                child: const Text(
-                  'Fin de soirée',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Lemon Tea',
+                TextButton(
+                  onPressed: () => _addConsumption(10),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: const Text(
+                    'Medium',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Lemon Tea',
+                    ),
                   ),
                 ),
+                const SizedBox(
+                  width: 14.0,
+                ),
+                TextButton(
+                  onPressed: () => _addConsumption(20),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: const Text(
+                    'Hard',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Lemon Tea',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 15.0,
+            ),
+            for (int i = 0; i < _historicConsumption.length; i++)
+              Text(
+                _historicConsumption[i],
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontFamily: 'Lemon Tea',
+                ),
               ),
-            ],
-          ),
+            const SizedBox(
+              height: 30.0,
+            ),
+            TextButton(
+              onPressed: () =>
+                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.blue,
+              ),
+              child: const Text(
+                'Fin de soirée',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Lemon Tea',
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
