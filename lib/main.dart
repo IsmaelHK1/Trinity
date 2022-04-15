@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trinity/Common/utils/IsLogged.dart';
 import 'package:trinity/Services/authentificationService.dart';
+import 'package:trinity/Services/authentificationService.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
