@@ -49,6 +49,10 @@ class _PartyPageState extends State<PartyPage> {
       _lifePoint -= damage;
       _percentLifePoint = _lifePoint * 100 / _maxLifePoint / 100;
 
+      if (_lifePoint - damage <= 0) {
+        MaterialPageRoute(builder: (context) => const MyHomePage());
+      }
+
       switch(damage) {
         case 5:
           _historicConsumption.add("Soft: -" + damage.toString() + " PV");
