@@ -4,13 +4,15 @@ import 'package:flutter/foundation.dart';
 import 'package:trinity/Common/models/UserData.dart';
 import 'package:trinity/Services/FirestoreDatabase.dart';
 
+// Partie BDD servant à récupérer les données utilisateurs : Status = Ne fonctionne pas
+
 class PartyService {
   final String? uid;
 
   PartyService(this.uid);
 
   final CollectionReference userCollection =
-  FirebaseFirestore.instance.collection('user');
+      FirebaseFirestore.instance.collection('user');
 
   // Future<void> addConsumption(int soft, int medium, int hard) async {
   //   return await consumptionCollection.doc(uid).set({
@@ -29,5 +31,4 @@ class PartyService {
   Stream<UserData> get user {
     return userCollection.doc(uid).snapshots().map(_userFromSnapshot);
   }
-
 }
