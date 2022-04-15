@@ -1,6 +1,6 @@
 # Trinity
 
-[Trinity](assets/images/logo_trinity.png)
+<img src="assets/images/logo_trinity.png" alt="Trinity"/>
 Ce projet est à l'issue du Projet Dev pour la seconde année à Ynov filière Informatique.
 
 ## Présentation
