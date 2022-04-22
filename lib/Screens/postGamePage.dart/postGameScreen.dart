@@ -9,9 +9,6 @@ List<UserData> createGroupTest() {
   UserData user2 = UserData();
   UserData user3 = UserData();
   UserData user4 = UserData();
-  UserData user5 = UserData();
-  UserData user6 = UserData();
-  UserData user7 = UserData();
 
   // on ne peut ajouter que 4 personne sinon gros beug : /
 
@@ -104,7 +101,7 @@ class PostGame_page extends StatelessWidget {
                   child: Container(
                     child: ListView.separated(
                       shrinkWrap: true,
-                      itemCount: group.length,
+                      itemCount: 1,
                       itemBuilder: (BuildContext context, int index) {
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -122,14 +119,13 @@ class PostGame_page extends StatelessWidget {
                                 size: 50,
                               ),
                             ),
-
                             /* a rejoint le salon */
                             Container(
                               alignment: Alignment.center,
                               width: 280.0,
                               height: 40.0,
                               child: const Text(
-                                'Test à rejoint votre salon',
+                                'ismael à rejoint votre salon',
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontFamily: 'Louis George Cafe.ttf',
